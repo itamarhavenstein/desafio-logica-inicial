@@ -1,10 +1,5 @@
 var readline = require('readline');
 
-//Variáveis globais
-var nomeHeroi = "";
-var qtdExperiencia = 0;
-var nivel = "";
-
 //usado para ler o que o usuário está digitando na tela
 var leitor = readline.Interface({
     input: process.stdin,
@@ -18,12 +13,8 @@ function menu() {
       
         if (opcao == 1) {
             leitor.question("Digite o nome do seu herói:  ", function (heroi) {
-                nomeHeroi = heroi;
-
                 leitor.question("Digite a experiencia do seu herói:  ", function (xp) {
-                    qtdExperiencia = xp;
-
-                    verNivel();
+                    verNivel(heroi,xp);
                     menu();
                 });
             });
@@ -35,11 +26,13 @@ function menu() {
 }
 
 //verificação do nível do herói baseado na sua experiência
-function verNivel() {
+function verNivel(nomeHeroi , qtdExperiencia) {
+    let nivel = "";
+
     if (0 < qtdExperiencia && qtdExperiencia < 1000) {
         nivel = "Ferro";
     } else if (1001 < qtdExperiencia && qtdExperiencia < 2000) {
-        nivel = "Bronze";
+        nivel = "Bronze";""
     } else if (2001 < qtdExperiencia && qtdExperiencia < 5000) {
         nivel = "Prata";
     } else if (5001 < qtdExperiencia && qtdExperiencia < 7000) {
