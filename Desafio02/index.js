@@ -13,7 +13,6 @@ menu();
 function menu()
 {
     leitor.question("Digite 1 para verificar seu nível ou digite 0 para sair: ", function (opcao) {
-        index = opcao;
         if (opcao == 1) {
             leitor.question("Digite a quantidade de vitórias que vc tem:  ", function (vitorias) {
                 leitor.question("Digite a quantidade de derrotas que vc tem:  ", function (derotas) {
